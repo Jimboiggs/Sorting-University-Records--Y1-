@@ -9,4 +9,4 @@ else
     output="$2"
 fi
 
-uniq "$1" > "$output"
+sort "$1" | uniq > "${output}.tmp" && mv "${output}.tmp" "$output"
