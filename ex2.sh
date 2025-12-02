@@ -2,8 +2,11 @@
 echo ".csv input file: $1"
 echo ".csv output file: $2"
 
-if [ "$2" = "" ]; then
-	$2 = $1
+# If no second parameter, set output to input
+if [ -z "$2" ]; then
+    output="$1"
+else
+    output="$2"
 fi
 
-cat $1 | uniq > $2
+uniq "$1" > "$output"
