@@ -1,0 +1,16 @@
+\subsection*{ex7}
+\subsubsection*{Required for first normal form}
+\begin{itemize}
+    \item Elements are atomic
+    \item No repeating groups
+\end{itemize}
+\subsubsection*{Making the data first normal form}
+The faculties relation is already in first normal form because every relation is atomic (each element is only one piece of data) and there are no repeating groups (each column is unique). We can keep our relation:\\
+\\FACULTIES(faculty,building,room,capacity,lecturer\_email,lecturer\_firstname,lecturer\_surname)\\
+\\However, the students relation is not first normal form. Firstly, the address column is not atomic because it contains the postcode and street name. Secondly, there are repeated groups. The lecturer columns are repeated (lecturer1, lecturer2) and the coursework columns are repeated (coursework1, coursework2, coursework3). Therefore, we need a new set of minimal functional dependencies:\\
+\\STUDENTS(student firstname,student surname,student id,student email,year,address,contact number,module id)\\
+\\MODULES(module id, module name, leader)\\
+\\STUDENTMODULES(student id, module id, exam mark)\\
+\\LECTURERMODULES(lecturer email, module id)\\
+\\COURSEWORKMARKS(student id, coursework id, module id, mark)\\
+

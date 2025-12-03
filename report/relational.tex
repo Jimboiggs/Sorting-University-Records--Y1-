@@ -1,32 +1,32 @@
-\subsection{ex4}
-\subsubsection{Faculties}
-R(faculty,building,room,capacity,lecturer\_email,lecturer\_firstname,lecturer\_surname)
-\subsubsection{Students}
-R(student firstname,student surname,student id,student email,year,address,contact number,module id,module name,leader,\\lecturer1,lecturer2,exam mark,coursework1,coursework2,coursework3)    
+\subsection*{ex4}
+\subsubsection*{Faculties}
+FACULTIES(faculty,building,room,capacity,lecturer\_email,lecturer\_firstname,lecturer\_surname)
+\subsubsection*{Students}
+STUDENTS(student firstname,student surname,student id,student email,year,address,contact number,module id,module name,leader,\\lecturer1,lecturer2,exam mark,coursework1,coursework2,coursework3)    
 
-\subsection{ex5}
-\subsubsection{Faculties}
-lecturer\_email -> lecturer\_firstname\\
-lecturer\_email -> lecturer\_surname\\
-lecturer\_email -> faculty\\
-\\building, room -> capacity
-\subsubsection{Students}
-student id -> student firstname\\
-student id -> student surname\\
-student id -> student email\\
-student id -> year\\
-student id -> contact number\\
-student id -> module id\\
-\\module id -> module name\\
-module id -> leader\\
-module id -> lecturer1\\
-module id -> lecturer2\\
-module id -> coursework1\\
-module id -> coursework2\\
-module id -> coursework3\\
-\\student id, module -> exam mark
+\subsection*{ex5}
+\subsubsection*{Faculties}
+$lecturer\_email \rightarrow lecturer\_firstname$\\
+$lecturer\_email \rightarrow lecturer\_surname$\\
+$lecturer\_email \rightarrow faculty$\\
+\\$building, room \rightarrow capacity$
+\subsubsection*{Students}
+$student id \rightarrow student firstname$\\
+$student id \rightarrow student surname$\\
+$student id \rightarrow student email$\\
+$student id \rightarrow year$\\
+$student id \rightarrow contact number$\\
+$student id \rightarrow module id$\\
+\\$module id \rightarrow module name$\\
+$module id \rightarrow leader$\\
+$module id \rightarrow lecturer1$\\
+$module id \rightarrow lecturer2$\\
+$module id \rightarrow coursework1$\\
+$module id \rightarrow coursework2$\\
+$module id \rightarrow coursework3$\\
+\\$student id, module \rightarrow exam mark$
 
-\subsection{ex6}
+\subsection*{ex6}
 \subsubsection{Faculties candidate keys}
 \underline{lecturer\_email} and building\_room
 \underline{lecturer\_email} is the primary key because it is used for only one lecturer within the faculty, although they may teach in multiple rooms.
