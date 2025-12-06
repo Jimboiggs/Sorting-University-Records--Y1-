@@ -14,3 +14,17 @@ The faculties relation is already in first normal form because every relation is
 \\LECTURERMODULES(lecturer email, module id)\\
 \\COURSEWORKMARKS(student id, coursework id, module id, mark)\\
 
+
+\subsection*{ex8}
+\subsubsection*{Partial-key dependencies}
+A partial key is when one of the non-key columns depends on only a part of a composite key. There are partial-key dependencies in our data:
+\begin{itemize}
+    \item $building, room \rightarrow capacity$
+    \item $lecturer\_email \rightarrow lecturer\_firstname, lecturer\_surname$
+    \item $building \rightarrow faculty$
+    \item $lecturer\_email \rightarrow faculty$
+\end{itemize}
+\subsubsection*{Required for second normal form}
+\begin{itemize}
+    \item No partial key dependencies (as described above)
+\end{itemize}
