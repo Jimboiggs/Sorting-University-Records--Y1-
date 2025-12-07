@@ -24,7 +24,15 @@ A partial key is when one of the non-key columns depends on only a part of a com
     \item $building \rightarrow faculty$
     \item $lecturer\_email \rightarrow faculty$
 \end{itemize}
+
 \subsubsection*{Required for second normal form}
 \begin{itemize}
     \item No partial key dependencies (as described above)
 \end{itemize}
+
+\subsubsection*{Our data in second normal form}
+FACULTIES(\underline{faculty})\\
+BUILDINGS(\underline{building}, faculty)\\
+ROOMS(\underline{building}, \underline{room}, capacity)\\
+LECTURERS(\underline{lecturer\_email},lecturer\_firstname,lecturer\_surname)\\
+LECTURERFACULTY(\underline{lecturer\_email}, \underline{faculty})
