@@ -15,3 +15,15 @@ CREATE TABLE BUILDINGS (
 INSERT INTO BUILDINGS (building, faculty)
 SELECT DISTINCT building, faculty
 FROM facultiescsv;
+
+
+CREATE TABLE ROOMS (
+    building TEXT,
+    room TEXT,
+    capacity INTEGER,
+    PRIMARY KEY (building, room)
+);
+
+INSERT INTO ROOMS (building, room, capacity)
+SELECT DISTINCT building, room, capacity
+FROM facultiescsv;
