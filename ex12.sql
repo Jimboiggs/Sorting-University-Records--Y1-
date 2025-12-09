@@ -53,7 +53,7 @@ FROM facultiescsv;
 
 
 CREATE TABLE STUDENTS (
-    studentID INTEGER NOT NULL,
+    studentID INTEGER NOT NULL PRIMARY KEY,
     student_firstname TEXT NOT NULL,
     student_surname TEXT NOT NULL,
     student_email TEXT NOT NULL,
@@ -74,3 +74,10 @@ SELECT DISTINCT (
     contact_number
 )
 FROM studentscsv;
+
+
+CREATE TABLE MODULES (
+    moduleID TEXT NOT NULL PRIMARY KEY,
+    module_name TEXT NOT NULL,
+    leader TEXT NOT NULL
+);
