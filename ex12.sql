@@ -1,5 +1,5 @@
 CREATE TABLE FACULTIES (
-    faculty TEXT PRIMARY KEY
+    faculty TEXT NOT NULL PRIMARY KEY
 );
 
 INSERT INTO FACULTIES (faculty)
@@ -8,8 +8,8 @@ FROM facultiescsv;
 
 
 CREATE TABLE BUILDINGS (
-    building TEXT,
-    faculty TEXT,
+    building TEXT NOT NULL,
+    faculty TEXT NOT NULL,
     PRIMARY KEY (building, faculty)
 );
 
@@ -19,9 +19,9 @@ FROM facultiescsv;
 
 
 CREATE TABLE ROOMS (
-    building TEXT,
-    room TEXT,
-    capacity INTEGER,
+    building TEXT NOT NULL,
+    room TEXT NOT NULL,
+    capacity INTEGER NOT NULL,
     PRIMARY KEY (building, room)
 );
 
@@ -31,9 +31,9 @@ FROM facultiescsv;
 
 
 CREATE TABLE LECTURERS (
-    lecturer_email TEXT PRIMARY KEY,
-    lecturer_firstname TEXT,
-    lecturer_surname TEXT,
+    lecturer_email TEXT NOT NULL PRIMARY KEY,
+    lecturer_firstname TEXT NOT NULL,
+    lecturer_surname TEXT NOT NULL,
 );
 
 INSERT INTO LECTURERS (lecturer_email, lecturer_firstname, lecturer_surname)
@@ -42,9 +42,9 @@ FROM facultiescsv;
 
 
 CREATE TABLE LECTURERFACULTY (
-            lecturer_email TEXT,
-            faculty TEXT,
-            PRIMARY KEY (lecturer_email, faculty)
+    lecturer_email TEXT NOT NULL,
+    faculty TEXT NOT NULL,
+    PRIMARY KEY (lecturer_email, faculty)
 );
 
 INSERT INTO LECTURERFACULTY (lecturer_email, faculty)
@@ -53,14 +53,14 @@ FROM facultiescsv;
 
 
 CREATE TABLE STUDENTS (
-    studentID INTEGER,
-    student_firstname TEXT,
-    student_surname TEXT,
-    student_email TEXT,
-    year INTEGER,
-    street TEXT,
-    postcode TEXT,
-    contact_number TEXT
+    studentID INTEGER NOT NULL,
+    student_firstname TEXT NOT NULL,
+    student_surname TEXT NOT NULL,
+    student_email TEXT NOT NULL,
+    year INTEGER NOT NULL,
+    street TEXT NULL,
+    postcode TEXT NULL,
+    contact_number TEXT NULL
 );
 
 INSERT INTO STUDENTS (studentID, student_firstname, student_surname, student_email, year, street, postcode, contact_number)
