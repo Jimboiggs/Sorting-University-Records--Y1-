@@ -98,8 +98,23 @@ INSERT INTO STUDENTMODULES (studentID, moduleID, exam_mark)
 SELECT studentID, moduleID, exam_mark
 FROM studentscsv;
 
+
 CREATE TABLE LECTURERMODULES (
     lecturer_email TEXT NOT NULL,
     moduleID TEXT NOT NULL,
     PRIMARY KEY (lecturer_email, moduleID)
 );
+
+INSERT INTO LECTURERMODULES (lecturer_email, moduleID)
+SELECT DISTINCT leader, moduleID
+FROM studentscsv;
+
+INSERT INTO LECTURERMODULES (lecturer_email, moduleID)
+SELECT DISTINCT lecturer1, moduleID
+FROM studentscsv
+WHERE lecturer1 NOT NULL;
+
+INSERT INTO LECTURERMODULES (lecturer_email, moduleID)
+SELECT DISTINCT lecturer2, moduleID
+FROM studentscsv
+WHERE lecturer2 NOT NULL;
