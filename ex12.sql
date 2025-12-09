@@ -81,3 +81,25 @@ CREATE TABLE MODULES (
     module_name TEXT NOT NULL,
     leader TEXT NOT NULL
 );
+
+INSERT INTO MODULES (moduleID, module_name, leader)
+SELECT DISTINCT moduleID, module_name, leader
+FROM studentscsv;
+
+
+CREATE TABLE STUDENTMODULES (
+    studentID INTEGER NOT NULL,
+    moduleID TEXT,
+    exam_mark INTEGER,
+    PRIMARY KEY (studentID, moduleID)
+);
+
+INSERT INTO STUDENTMODULES (studentID, moduleID, exam_mark)
+SELECT studentID, moduleID, exam_mark
+FROM studentscsv;
+
+CREATE TABLE LECTURERMODULES (
+    lecturer_email TEXT NOT NULL,
+    moduleID TEXT NOT NULL,
+    PRIMARY KEY (lecturer_email, moduleID)
+);
