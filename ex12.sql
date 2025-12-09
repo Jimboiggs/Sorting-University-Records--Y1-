@@ -1,0 +1,7 @@
+CREATE TABLE FACULTIES (
+    faculty TEXT PRIMARY KEY
+);
+
+INSERT INTO FACULTIES (faculty)
+SELECT faculty
+FROM university;
