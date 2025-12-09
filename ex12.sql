@@ -3,5 +3,15 @@ CREATE TABLE FACULTIES (
 );
 
 INSERT INTO FACULTIES (faculty)
-SELECT faculty
-FROM university;
+SELECT DISTINCT faculty
+FROM facultiescsv;
+
+
+CREATE TABLE BUILDINGS (
+    building TEXT PRIMARY KEY,
+    faculty TEXT
+);
+
+INSERT INTO BUILDINGS (building, faculty)
+SELECT DISTINCT building, faculty
+FROM facultiescsv;
