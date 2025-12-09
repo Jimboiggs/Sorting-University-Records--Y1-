@@ -28,3 +28,13 @@ CREATE TABLE ROOMS (
 INSERT INTO ROOMS (building, room, capacity)
 SELECT DISTINCT building, room, capacity
 FROM facultiescsv;
+
+CREATE TABLE LECTURERS (
+    lecturer_email TEXT PRIMARY KEY,
+    lecturer_firstname TEXT,
+    lecturer_surname TEXT,
+);
+
+INSERT INTO LECTURERS (lecturer_email, lecturer_firstname, lecturer_surname)
+SELECT DISTINCT lecturer_email, lecturer_firstname, lecturer_surname
+FROM facultiescsv;
