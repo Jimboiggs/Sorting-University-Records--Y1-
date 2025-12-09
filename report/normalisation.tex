@@ -32,7 +32,7 @@ A partial key is when one of the non-key columns depends on only a part of a com
 
 \subsubsection*{Our data in second normal form}
 FACULTIES(\underline{faculty})\\
-BUILDINGS(\underline{building}, faculty)\\
+BUILDINGS(\underline{building}, \underline{faculty})\\
 ROOMS(\underline{building}, \underline{room}, capacity)\\
 LECTURERS(\underline{lecturer\_email},lecturer\_firstname,lecturer\_surname)\\
 LECTURERFACULTY(\underline{lecturer\_email}, \underline{faculty})\\
@@ -59,7 +59,7 @@ As it stands, our data is in third normal form. \textbf{Before} we normalised to
 \\$(building, room) \rightarrow lecturer\_email \rightarrow faculty$\\
 \\However, this transitive dependency was dealt with when we converted our data to second normal form. Therefore, our relations remain the same:\\
 \\FACULTIES(\underline{faculty})\\
-BUILDINGS(\underline{building}, faculty)\\
+BUILDINGS(\underline{building}, \underline{faculty})\\
 ROOMS(\underline{building}, \underline{room}, capacity)\\
 LECTURERS(\underline{lecturer\_email},lecturer\_firstname,lecturer\_surname)\\
 LECTURERFACULTY(\underline{lecturer\_email}, \underline{faculty})\\

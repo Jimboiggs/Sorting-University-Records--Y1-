@@ -8,8 +8,9 @@ FROM facultiescsv;
 
 
 CREATE TABLE BUILDINGS (
-    building TEXT PRIMARY KEY,
-    faculty TEXT
+    building TEXT,
+    faculty TEXT,
+    PRIMARY KEY (building, faculty)
 );
 
 INSERT INTO BUILDINGS (building, faculty)
