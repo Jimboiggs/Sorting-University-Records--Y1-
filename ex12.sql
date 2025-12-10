@@ -141,7 +141,7 @@ SELECT DISTINCT lecturer_email, moduleID FROM (
 CREATE TABLE COURSEWORKMARKS (
     studentID INTEGER NOT NULL,
     moduleID TEXT NOT NULL,
-    courseworkID INTEGER NOT NULL,
+    courseworkID INTEGER,
     mark INTEGER NOT NULL,
     PRIMARY KEY (studentID, moduleID, courseworkID)
 );
