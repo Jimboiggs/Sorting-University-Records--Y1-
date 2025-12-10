@@ -112,12 +112,12 @@ FROM studentscsv;
 INSERT INTO LECTURERMODULES (lecturer_email, moduleID)
 SELECT DISTINCT lecturer1, moduleID
 FROM studentscsv
-WHERE lecturer1 NOT NULL;
+WHERE lecturer1 IS NOT NULL;
 
 INSERT INTO LECTURERMODULES (lecturer_email, moduleID)
 SELECT DISTINCT lecturer2, moduleID
 FROM studentscsv
-WHERE lecturer2 NOT NULL;
+WHERE lecturer2 IS NOT NULL;
 
 
 CREATE TABLE COURSEWORKMARKS (
@@ -131,4 +131,4 @@ CREATE TABLE COURSEWORKMARKS (
 INSERT INTO COURSEWORKMARKS (studentID, moduleID, mark)
 SELECT DISTINCT studentID, moduleID, mark
 FROM studentscsv
-WHERE mark NOT NULL;
+WHERE mark IS NOT NULL;
