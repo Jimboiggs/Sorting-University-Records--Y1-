@@ -75,13 +75,12 @@ SELECT DISTINCT
             THEN substr(address, 1, instr(address, '\n') - 1)
         ELSE address
     END AS street,
+
     CASE
         WHEN instr(address, '\n') > 0 THEN
             substr(
                 substr(address, instr(address, '\n') + 1),
-                length(substr(address, instr(address, '\n') + 1))
-                - instr(reverse(substr(address, instr(address, '\n') + 1)), ' ')
-                + 2
+                length(substr(address, instr(address, '\n') + 1)) - 4
             )
         ELSE NULL
     END AS postcode,
@@ -119,18 +118,24 @@ CREATE TABLE LECTURERMODULES (
 );
 
 INSERT INTO LECTURERMODULES (lecturer_email, moduleID)
-SELECT DISTINCT leader, moduleID
-FROM studentscsv;
+SELECT DISTINCT lecturer_email, moduleID FROM (
+    SELECT leader AS lecturer_email, moduleID
+    FROM studentscsv
+    WHERE leader IS NOT NULL AND leader <> ''
 
-INSERT INTO LECTURERMODULES (lecturer_email, moduleID)
-SELECT DISTINCT lecturer1, moduleID
-FROM studentscsv
-WHERE lecturer1 IS NOT NULL;
+    UNION
+    
+    SELECT lecturer1 AS lecturer_email, moduleID
+    FROM studentscsv
+    WHERE lecturer1 IS NOT NULL AND lecturer1 <> ''
 
-INSERT INTO LECTURERMODULES (lecturer_email, moduleID)
-SELECT DISTINCT lecturer2, moduleID
-FROM studentscsv
-WHERE lecturer2 IS NOT NULL;
+    UNION
+
+    SELECT lecturer2 AS lecturer_email, moduleID
+    FROM studentscsv
+    WHERE lecturer2 IS NOT NULL AND lecturer2 <> ''
+
+);
 
 
 CREATE TABLE COURSEWORKMARKS (
@@ -142,6 +147,16 @@ CREATE TABLE COURSEWORKMARKS (
 );
 
 INSERT INTO COURSEWORKMARKS (studentID, moduleID, mark)
-SELECT DISTINCT studentID, moduleID, mark
+SELECT DISTINCT studentID, moduleID, coursework1
 FROM studentscsv
-WHERE mark IS NOT NULL;
+WHERE coursework1 IS NOT NULL;
+
+INSERT INTO COURSEWORKMARKS (studentID, moduleID, mark)
+SELECT DISTINCT studentID, moduleID, coursework2
+FROM studentscsv
+WHERE coursework2 IS NOT NULL;
+
+INSERT INTO COURSEWORKMARKS (studentID, moduleID, mark)
+SELECT DISTINCT studentID, moduleID, coursework3
+FROM studentscsv
+WHERE coursework3 IS NOT NULL;
