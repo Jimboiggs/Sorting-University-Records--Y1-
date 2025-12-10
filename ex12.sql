@@ -139,11 +139,10 @@ SELECT DISTINCT lecturer_email, moduleID FROM (
 
 
 CREATE TABLE COURSEWORKMARKS (
+    courseworkID INTEGER PRIMARY KEY,
     studentID INTEGER NOT NULL,
     moduleID TEXT NOT NULL,
-    courseworkID INTEGER,
-    mark INTEGER NOT NULL,
-    PRIMARY KEY (studentID, moduleID, courseworkID)
+    mark INTEGER NOT NULL
 );
 
 INSERT INTO COURSEWORKMARKS (studentID, moduleID, mark)
