@@ -33,7 +33,7 @@ FROM facultiescsv;
 CREATE TABLE LECTURERS (
     lecturer_email TEXT NOT NULL PRIMARY KEY,
     lecturer_firstname TEXT NOT NULL,
-    lecturer_surname TEXT NOT NULL,
+    lecturer_surname TEXT NOT NULL
 );
 
 INSERT INTO LECTURERS (lecturer_email, lecturer_firstname, lecturer_surname)
