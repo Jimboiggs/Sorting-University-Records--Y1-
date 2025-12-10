@@ -71,16 +71,16 @@ SELECT DISTINCT
     student_email,
     year,
     CASE 
-        WHEN instr(address, '\n') > 0
-            THEN substr(address, 1, instr(address, '\n') - 1)
+        WHEN instr(address, char(10)) > 0
+            THEN substr(address, 1, instr(address, char(10)) - 1)
         ELSE address
     END AS street,
 
     CASE
-        WHEN instr(address, '\n') > 0 THEN
+        WHEN instr(address, char(10)) > 0 THEN
             substr(
-                substr(address, instr(address, '\n') + 1),
-                length(substr(address, instr(address, '\n') + 1)) - 4
+                substr(address, instr(address, char(10)) + 1),
+                length(substr(address, instr(address, char(10)) + 1)) - 4
             )
         ELSE NULL
     END AS postcode,
