@@ -148,14 +148,14 @@ CREATE TABLE COURSEWORKMARKS (
 INSERT INTO COURSEWORKMARKS (studentID, moduleID, mark)
 SELECT DISTINCT studentID, moduleID, coursework1
 FROM studentscsv
-WHERE coursework1 IS NOT NULL;
+WHERE coursework1 IS NOT NULL AND coursework1 <> '';
 
 INSERT INTO COURSEWORKMARKS (studentID, moduleID, mark)
 SELECT DISTINCT studentID, moduleID, coursework2
 FROM studentscsv
-WHERE coursework2 IS NOT NULL;
+WHERE coursework2 IS NOT NULL AND coursework2 <> '';
 
 INSERT INTO COURSEWORKMARKS (studentID, moduleID, mark)
 SELECT DISTINCT studentID, moduleID, coursework3
 FROM studentscsv
-WHERE coursework3 IS NOT NULL;
+WHERE coursework3 IS NOT NULL AND coursework3 <> '';
