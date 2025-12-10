@@ -64,15 +64,28 @@ CREATE TABLE STUDENTS (
 );
 
 INSERT INTO STUDENTS (studentID, student_firstname, student_surname, student_email, year, street, postcode, contact_number)
-SELECT DISTINCT (
+SELECT DISTINCT
+    studentID,
     student_firstname,
     student_surname,
     student_email,
     year,
-    substr(address, 1, instr(address, char(10)) - 1) AS street,
-    substr(address, length(address) - instr(reverse(address), ' ') + 2) AS postcode,
+    CASE 
+        WHEN instr(address, '\n') > 0
+            THEN substr(address, 1, instr(address, '\n') - 1)
+        ELSE address
+    END AS street,
+    CASE
+        WHEN instr(address, '\n') > 0 THEN
+            substr(
+                substr(address, instr(address, '\n') + 1),
+                length(substr(address, instr(address, '\n') + 1))
+                - instr(reverse(substr(address, instr(address, '\n') + 1)), ' ')
+                + 2
+            )
+        ELSE NULL
+    END AS postcode,
     contact_number
-)
 FROM studentscsv;
 
 
