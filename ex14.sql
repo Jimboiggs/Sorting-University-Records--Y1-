@@ -17,9 +17,9 @@ MODULEAVGS AS (
     GROUP BY MODULES.moduleID, MODULES.leader, LECTURERFACULTY.faculty
 )
 SELECT *
-FROM MODULEAVGS
+FROM MODULEAVGS ma
 WHERE moduleAVG = (
     SELECT MAX(moduleAVG)
     FROM MODULEAVGS
-    WHERE faculty = MODULEAVGS.faculty
+    WHERE faculty = ma.faculty
 )
