@@ -22,4 +22,4 @@ WHERE moduleAVG = (
     SELECT MAX(moduleAVG)
     FROM MODULEAVGS
     WHERE faculty = ma.faculty
-)
+);

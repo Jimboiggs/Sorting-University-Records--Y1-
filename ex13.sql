@@ -1,4 +1,8 @@
-SELECT STUDENTS.studentID, STUDENTS.student_firstname, STUDENTS.student_surname, AVG(STUDENTMODULES.exam_mark) AS average
+SELECT
+    STUDENTS.studentID,
+    STUDENTS.student_firstname,
+    STUDENTS.student_surname,
+    AVG(STUDENTMODULES.exam_mark) AS average
 FROM STUDENTS
 JOIN STUDENTMODULES ON STUDENTS.studentID = STUDENTMODULES.studentID
 WHERE STUDENTS.year = 1 AND STUDENTMODULES.moduleID LIKE '%COMP%'
