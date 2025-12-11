@@ -1,0 +1,61 @@
+\subsection*{ex13}
+\begin{verbatim}
+SELECT
+    STUDENTS.studentID,
+    STUDENTS.student_firstname,
+    STUDENTS.student_surname,
+    AVG(STUDENTMODULES.exam_mark) AS average
+FROM STUDENTS
+JOIN STUDENTMODULES ON STUDENTS.studentID = STUDENTMODULES.studentID
+WHERE STUDENTS.year = 1 AND STUDENTMODULES.moduleID LIKE '%COMP%'
+GROUP BY STUDENTS.studentID, STUDENTS.student_firstname, STUDENTS.student_surname
+ORDER BY average DESC;
+\end{verbatim}
+
+\subsection*{ex14}
+\begin{verbatim}
+WITH ALLMARKS AS (
+    SELECT moduleID, exam_mark AS mark
+    FROM STUDENTMODULES
+    WHERE exam_mark IS NOT NULL
+
+    UNION ALL
+
+    SELECT moduleID, mark AS mark
+    FROM COURSEWORKMARKS
+    WHERE mark IS NOT NULL
+),
+MODULEAVGS AS (
+    SELECT MODULES.moduleID, MODULES.leader, LECTURERFACULTY.faculty, AVG(ALLMARKS.mark) AS moduleAVG
+    FROM MODULES
+    JOIN LECTURERFACULTY ON MODULES.leader = LECTURERFACULTY.lecturer_email
+    JOIN ALLMARKS ON MODULES.moduleID = ALLMARKS.moduleID
+    GROUP BY MODULES.moduleID, MODULES.leader, LECTURERFACULTY.faculty
+)
+SELECT *
+FROM MODULEAVGS ma
+WHERE moduleAVG = (
+    SELECT MAX(moduleAVG)
+    FROM MODULEAVGS
+    WHERE faculty = ma.faculty
+);
+\end{verbatim}
+
+
+\subsection*{ex15}
+\begin{verbatim}
+WITH MODULESIZE AS(
+    SELECT moduleID, COUNT(studentID) as numStudents
+    FROM STUDENTMODULES
+    GROUP BY moduleID
+)
+
+SELECT MODULESIZE.moduleID, BUILDINGS.building, ROOMS.room
+FROM MODULESIZE
+JOIN LECTURERMODULES ON MODULESIZE.moduleID = LECTURERMODULES.moduleID
+JOIN LECTURERFACULTY ON LECTURERMODULES.lecturer_email = LECTURERFACULTY.lecturer_email
+JOIN BUILDINGS ON LECTURERFACULTY.faculty = BUILDINGS.faculty
+JOIN ROOMS ON BUILDINGS.building = ROOMS.building
+WHERE MODULESIZE.numStudents > ROOMS.capacity
+ORDER BY MODULESIZE.moduleID, BUILDINGS.building, ROOMS.room;
+\end{verbatim}
