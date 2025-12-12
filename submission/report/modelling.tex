@@ -1,0 +1,123 @@
+\subsection*{ex11}
+
+\subsubsection*{FACULTIES}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Attribute} & \textbf{SQLite Data Type} \\ \hline
+faculty            & TEXT                      \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{BUILDINGS}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Attribute} & \textbf{SQLite Data Type} \\ \hline
+building           & TEXT                      \\ \hline
+faculty            & TEXT                      \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{ROOMS}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Attribute} & \textbf{SQLite Data Type} \\ \hline
+building           & TEXT                      \\ \hline
+room               & TEXT                      \\ \hline
+capacity           & INTEGER                   \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{LECTURERS}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Attribute}    & \textbf{SQLite Data Type} \\ \hline
+lecturer\_email        & TEXT                      \\ \hline
+lecturer\_firstname    & TEXT                      \\ \hline
+lecturer\_surname      & TEXT                      \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{LECTURERFACULTY}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Attribute} & \textbf{SQLite Data Type} \\ \hline
+lecturer\_email     & TEXT                      \\ \hline
+faculty            & TEXT                      \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{STUDENTS}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Attribute}   & \textbf{SQLite Data Type} \\ \hline
+student\_firstname    & TEXT                      \\ \hline
+student\_surname      & TEXT                      \\ \hline
+studentID            & INTEGER                   \\ \hline
+student\_email        & TEXT                      \\ \hline
+year                 & INTEGER                   \\ \hline
+street               & TEXT                      \\ \hline
+postcode             & TEXT                      \\ \hline
+contact\_number       & TEXT                      \\ \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsubsection*{MODULES}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Attribute} & \textbf{SQLite Data Type} \\ \hline
+moduleID           & TEXT                      \\ \hline
+module\_name        & TEXT                      \\ \hline
+leader             & TEXT                      \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{STUDENTMODULES}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Attribute} & \textbf{SQLite Data Type} \\ \hline
+studentID          & INTEGER                   \\ \hline
+moduleID           & TEXT                      \\ \hline
+exam\_mark          & INTEGER                   \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{LECTURERMODULES}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Attribute} & \textbf{SQLite Data Type} \\ \hline
+lecturer\_email     & TEXT                      \\ \hline
+moduleID           & TEXT                      \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{COURSEWORKMARKS}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Attribute} & \textbf{SQLite Data Type} \\ \hline
+studentID          & INTEGER                   \\ \hline
+moduleID           & TEXT                      \\ \hline
+courseworkID       & INTEGER                   \\ \hline
+mark               & INTEGER                   \\ \hline
+\end{tabular}
+\end{table}
