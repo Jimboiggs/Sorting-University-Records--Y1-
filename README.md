@@ -15,3 +15,8 @@ Downloads a file from a url using curl and saves it to a given filepath (prints 
 Removes duplicate rows from a .csv file using uniq and saves it to a file path (or re-writes the old file if no file path is provided). Takes the following parameters:
 * .csv file path
 * .csv output file path (optional)
+### sort_descending.sh
+Sorts .csv file by a given header and outputs to the command line. Prints up to a certain number of rows if specified. Outputs error message if the header is not in the file. Takes the following parameters:
+* .csv file path
+* Named header
+* Integer of rows (optional)
